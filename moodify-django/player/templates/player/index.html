@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head><title>Moodify</title></head>
+<body>
+  <h1>🎵 Moodify - Play Songs by Mood</h1>
+  <form method="post">
+    {% csrf_token %}
+    <input type="text" name="mood_input" placeholder="Enter your mood (e.g., happy, sad)">
+    <button type="submit">Play Song</button>
+  </form>
+  {% if song_url %}
+    <audio controls autoplay>
+      <source src="{{ song_url }}" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+  {% endif %}
+</body>
+</html>
